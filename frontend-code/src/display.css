@@ -1,0 +1,16 @@
+#album{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 1000px;
+    /* height: 1000px;
+    /* this will help us center it*/
+    margin: auto;
+    background-color: var(--form_bg);
+}
+
+.album-img {
+    width: 450px;
+    height: 300px;
+    margin: 10px;
+}

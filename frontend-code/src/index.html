@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <title>Photo Album</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+    <link
+     rel="stylesheet"
+     href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+     crossorigin="anonymous"
+    />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="display.css">
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="apiGateway-js-sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+  </head>
+<body>
+  <div id="main">
+    <div id="form_wrapper">
+        <div id="form_left">
+            <h1>Upload A Picture</h1>
+            <div class="input_container">
+              <input placeholder="Upload Image" type="file" id="field_upload" class="input_field">
+            </div>
+            <div class="input_container">
+                <input placeholder="Labels" type="text" name="labels" id="field_labels" class="input_field">
+              </div>
+            <input type="submit" value="Upload" id="input_submit" class="input_field" onclick="uploadPhoto()">
+        </div>
+        <div id="form_right">
+            <h1>Search A Picture</h1>
+            <div class="input_container">
+              <input placeholder="Search" type="text" id="field_search" class="input_field">
+            </div>
+            <div class="input_container">
+              <button id="start-button" class="button-xl" title="Start Transcription" onclick="recognition.start()">
+                <i class="fa fa-microphone"></i> Start
+              </button>
+              <button id="stop-button" class="button-xl" title="Stop Transcription" onclick="recognition.stop()"> 
+                <i class="fa fa-stop-circle"></i> Stop
+              </button>
+              <button id="reset-button" class="button-xl button-secondary" title="Clear Transcript" onclick="resetSearchbar()">
+                  Clear Transcript
+              </button>
+            </div>
+            <input type="submit" value="Search" id="input_submit" class="input_field" onclick="searchPhoto()"">
+        </div>
+    </div>
+    <div id="display-text">
+    </div>
+    <div id="album">
+    </div> 
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="apigClient.js"></script>
+<script src="process.js"></script>
+<script src="recognition.js"></script>
+
+<!-- <script type="module" src="audioUtils.js"></script> -->
+<!-- <script src="transcribe.js"></script> -->
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+</body>
+</html>  
